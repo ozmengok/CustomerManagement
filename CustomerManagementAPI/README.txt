@@ -1,4 +1,4 @@
-﻿This is web api project. Web api was developed as multilayer structure
+﻿This is web api project. Web api was developed as multilayer structure with C# 6.0
 
 Controller folder 
 is for service layer, which we define web apis , calls the business layer
