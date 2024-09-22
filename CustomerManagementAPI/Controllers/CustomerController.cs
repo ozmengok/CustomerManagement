@@ -58,6 +58,20 @@ namespace CustomerWebApi.Controllers
             }
         }
 
+        [HttpPost("DeleteCustomer")]
+        public IActionResult DeleteCustomer(int customerId)
+        {
+            if (ModelState.IsValid)
+            {
+                return _customerManager.DeleteCustomer(customerId);
+
+            }
+            else
+            {
+                return new JsonResult(HttpStatusCode.BadRequest);
+            }
+        }
+
 
     }
 }

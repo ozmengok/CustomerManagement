@@ -10,5 +10,7 @@ namespace CustomerWebApi.Manager
         public JsonResult GetCustomerList();
         public JsonResult GetCustomerByFirstName(string firstName);
         public JsonResult SaveCustomer(Customer customer);
+        public JsonResult DeleteCustomer(int customerId);
+
     }
 }

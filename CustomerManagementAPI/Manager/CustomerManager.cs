@@ -83,6 +83,8 @@ namespace CustomerWebApi.Manager
                     return new JsonResult(new { Result = false, Error = "Firstname can not be empty" });
                 }
 
+                customer.Status = "A"; //could be taken from enum
+
 
                 customer = _customerRepository.SaveCustomer(customer);        
                 if(customer == null)
@@ -95,16 +97,37 @@ namespace CustomerWebApi.Manager
             catch (Exception ex)
             {
                 return new JsonResult(HttpStatusCode.ServiceUnavailable, ex.ToString());
-            }
-
-
-                
-
-           
+            }         
 
         }
 
 
+        public JsonResult DeleteCustomer(int customerId)
+        {
+            try
+            {
+                if (customerId == 0)
+                {
+                    return new JsonResult(new { Result = false, Error = "Customer Id is empty" });
+                }
+
+                var customer = _customerRepository.GetCustomerById(customerId);
+                if (customer == null || customer.Id == 0)
+                {
+                    return new JsonResult(new { Result = false, Error = "Customer not found" });
+                }
+                customer.Status = "P"; //could be taken from enum
+                customer = _customerRepository.SaveCustomer(customer);
+              
+                return new JsonResult(new { Result = true, Customer = customer });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(HttpStatusCode.ServiceUnavailable, ex.ToString());
+            }
+
+
+        }
 
 
 

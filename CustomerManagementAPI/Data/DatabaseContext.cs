@@ -23,11 +23,11 @@ namespace CustomerWebApi.Data
 
             return new List<Customer>
             {
-                new Customer { Id= 1, Firstname = "Jack", Surname = "AAA"},
-                new Customer { Id= 2, Firstname = "Yasar", Surname = "BBBB"},
-                new Customer { Id= 3, Firstname = "Ozmen", Surname = "CCC"},
-                new Customer { Id= 4, Firstname = "XXXXX", Surname = "DDDD"},
-                new Customer { Id= 5, Firstname = "YYYY", Surname = "EEEE"}
+                new Customer { Id= 1, Firstname = "Jack", Surname = "AAA", Status = "A"},
+                new Customer { Id= 2, Firstname = "Yasar", Surname = "BBBB", Status = "A"},
+                new Customer { Id= 3, Firstname = "Ozmen", Surname = "CCC", Status = "P"},
+                new Customer { Id= 4, Firstname = "XXXXX", Surname = "DDDD", Status = "A"},
+                new Customer { Id= 5, Firstname = "YYYY", Surname = "EEEE", Status = "A"}
             };
         }
 

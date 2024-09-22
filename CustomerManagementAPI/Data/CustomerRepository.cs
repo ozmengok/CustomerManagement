@@ -18,17 +18,19 @@ namespace CustomerWebApi.Data
 
         public Customer GetCustomerById(int customerId)
         {
-            return m_Context.Customer.FirstOrDefault(x => x.Id == customerId);              
+            return m_Context.Customer.FirstOrDefault(x => x.Id == customerId && x.Status == "A");              
         }
 
         public List<Customer> GetListOfCustomer()
         {
-            return m_Context.Customer.ToList();
+            var customers =  m_Context.Customer.Where(x => x.Status == "A");
+            return customers.ToList();
         }
 
         public List<Customer> GetCustomerByFirstName(string firstName)
         {
-            return m_Context.Customer.Where(x => x.Firstname == firstName).ToList();
+            var customers = m_Context.Customer.Where(x => x.Firstname == firstName && x.Status == "A");
+            return customers.ToList();
 
         }
         public Customer  SaveCustomer(Customer customer)
@@ -37,18 +39,19 @@ namespace CustomerWebApi.Data
             {
                 //update
                 Customer toUpdateCustomer = m_Context.Customer.FirstOrDefault(x => x.Id == customer.Id);
-                if(toUpdateCustomer == null)
+                if(toUpdateCustomer != null)
                 {
-                    return null;
-                }
-                toUpdateCustomer.Firstname  = customer.Firstname;
-                toUpdateCustomer.Surname = customer.Surname;
+                    toUpdateCustomer.Firstname = customer.Firstname;
+                    toUpdateCustomer.Surname = customer.Surname;
+                    toUpdateCustomer.Status = customer.Status;
+                }              
 
+                return toUpdateCustomer;
             }
             else
             {
                 //add
-                int? lastCustomerId = m_Context.Customer.Max(p => p.Id);
+                int lastCustomerId = m_Context.Customer.Max(p => p.Id);
                 customer.Id = lastCustomerId == null ? 1 : lastCustomerId + 1;
 
                 m_Context.Customer.Add(customer);

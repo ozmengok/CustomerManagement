@@ -15,7 +15,7 @@ Model Folder
 is for data models which are used through controller, business, and data layers.
 
 
-*Web apis : GetCustomerList, GetCustomerListByName, CreateCustomer   can be found in CustomerController.cs 
+*Web apis : GetCustomerList, GetCustomerListByName, CreateCustomer, DeleteCustomer   can be found in CustomerController.cs 
 
 *Dependency injections are registered at program.cs 
 builder.Services.AddSingleton<ICustomerManager, CustomerManager>();
