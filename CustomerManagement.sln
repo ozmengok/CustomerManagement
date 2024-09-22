@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerManagementUI", "CustomerManagement\CustomerManagementUI.csproj", "{B2633EF6-3EC0-41E0-8A5F-7FD4A09C92E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerManagementUI", "CustomerManagementUI\CustomerManagementUI.csproj", "{B2633EF6-3EC0-41E0-8A5F-7FD4A09C92E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerManagementAPI", "CustomerManagementAPI\CustomerManagementAPI.csproj", "{FDC5E783-F658-46CB-B7E3-5DB8C7262943}"
 EndProject
