@@ -1,0 +1,11 @@
+﻿@model CustomerManagementUI.Models.Customer
+
+<h2>Confirm Deletion</h2>
+
+<p>Are you sure you want to delete the customer <strong>@Model.Firstname @Model.Surname</strong>?</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" /> <!-- Ensure the ID is sent -->
+    <button type="submit" class="btn btn-danger">Confirm</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+</form>

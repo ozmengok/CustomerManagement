@@ -1,0 +1,28 @@
+﻿@model List<CustomerManagementUI.Models.Customer>
+
+<h2>Customer List</h2>
+
+<a href="@Url.Action("Create")" class="btn btn-success">Add New Customer</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Firstname</td>
+                <td>@customer.Surname</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = customer.Id })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = customer.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

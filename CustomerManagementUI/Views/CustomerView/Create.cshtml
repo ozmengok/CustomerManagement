@@ -1,0 +1,28 @@
+﻿@model CustomerManagementUI.Models.Customer
+
+<h2>Add New Customer</h2>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Firstname"></label>
+        <input asp-for="Firstname" class="form-control" />
+        <span asp-validation-for="Firstname" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Surname"></label>
+        <input asp-for="Surname" class="form-control" />
+        <span asp-validation-for="Surname" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+</form>
